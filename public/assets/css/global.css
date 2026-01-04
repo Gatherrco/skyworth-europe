@@ -1141,3 +1141,68 @@ main {
   .page-title { font-size: 40px; }
   .page-section { padding: 70px 0; }
 }
+
+/* =========================
+   FEATURED VEHICLES (COMMERCIAL)
+   ========================= */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+}
+
+.featured-media img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  background: #f5f5f7;
+}
+
+.featured-content {
+  padding: 22px 22px 20px;
+}
+
+.featured-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #111111;
+  margin-bottom: 8px;
+}
+
+.featured-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555555;
+  margin-bottom: 14px;
+}
+
+.featured-link {
+  font-size: 14px;
+  color: rgba(0,0,0,0.75);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
