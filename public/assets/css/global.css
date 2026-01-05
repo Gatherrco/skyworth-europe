@@ -1390,3 +1390,120 @@ main {
     justify-content: flex-start;
   }
 }
+
+/* =========================================
+   CONTACT FORM (contact.html) — Apple style
+   Targets: <form class="form"> .form-grid ...
+   ========================================= */
+
+.form {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Turn the grid into a clean 12-col layout */
+.form .form-grid{
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+
+  /* Apple-ish card */
+  padding: clamp(18px, 3vw, 28px);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(12, 11, 11, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.28);
+}
+
+/* Each label acts like a field block */
+.form .form-grid > label{
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* The span inside label is your "label text" */
+.form .form-grid > label > span{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Inputs */
+.form input,
+.form textarea{
+  width: 100%;
+  min-width: 0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.2;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  color: rgba(22, 19, 19, 0.92);
+
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.form input::placeholder,
+.form textarea::placeholder{
+  color: rgba(255,255,255,0.45);
+}
+
+/* Focus ring (Apple clean) */
+.form input:focus,
+.form textarea:focus{
+  border-color: rgba(46,125,255,0.55);
+  box-shadow: 0 0 0 4px rgba(46,125,255,0.22);
+}
+
+/* Full width message field */
+.form .form-grid > label.full{
+  grid-column: 1 / -1;
+}
+
+.form textarea{
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* Button stays INSIDE grid and aligns right */
+.form .form-grid > button{
+  grid-column: 1 / -1;
+  justify-self: end;
+
+  /* If your .btn-primary has styles already, these
+     keep it looking Apple-like without breaking theme */
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .form .form-grid > label{ grid-column: span 6; }
+}
+
+@media (max-width: 640px){
+  .form .form-grid{
+    grid-template-columns: 1fr;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .form .form-grid > label,
+  .form .form-grid > label.full,
+  .form .form-grid > button{
+    grid-column: 1 / -1;
+  }
+}
