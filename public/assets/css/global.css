@@ -108,6 +108,49 @@ a {
 }
 
 /* =========================
+   REGION LABEL (EUROPE / EU)
+   ========================= */
+
+.site-region{
+  position: absolute;
+  right: 32px;              /* same as .container padding */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+  white-space: nowrap;
+}
+
+/* Desktop shows EUROPE */
+.region-mobile{ display: none; }
+
+/* Mobile shows EU + avoid collision with hamburger */
+@media (max-width: 899px){
+  .region-desktop{ display: none; }
+  .region-mobile{ display: inline; }
+
+  /* move label a bit left so it doesn't sit under the burger */
+  .site-region{
+    right: 72px;            /* leaves room for the nav-toggle on the edge */
+    font-size: 12px;
+  }
+}
+
+/* optional: if super small screens */
+@media (max-width: 420px){
+  .site-logo img{ width: 150px; }
+}
+
+
+/* =========================
    DROPDOWNS (APPLE-LIKE)
    ========================= */
 
